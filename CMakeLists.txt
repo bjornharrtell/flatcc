@@ -332,7 +332,6 @@ endif()
 # disabled by FLATCC_RTONLY
 if (FLATCC_TEST)
     add_subdirectory(test)
-    add_subdirectory(samples)
 endif()
 
 if (FLATCC_COVERAGE)
