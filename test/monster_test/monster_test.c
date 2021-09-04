@@ -674,6 +674,8 @@ int gen_monster(flatcc_builder_t *B, int with_size)
     nsc(string_ref_t) name;
     nsc(string_ref_t) strings[3];
     nsc(bool_t)bools[] = { 0, 1, 1, 0 };
+    uint8_t booldata[] = { 0, 1, 0, 0, 1, 0, 0 };
+    double doubledata[] = { 0.1, 0.2 };
     flatcc_builder_reset(B);
 
 
@@ -828,6 +830,9 @@ int gen_monster(flatcc_builder_t *B, int with_size)
 
     ns(Monster_enemy_start(B));
     ns(Monster_name_create_str(B, "the enemy"));
+
+    ns(Monster_testarrayofbools_create(B, booldata, c_vec_len(booldata)));
+    ns(Monster_vector_of_doubles_create(B, doubledata, c_vec_len(doubledata)));
 
     /* Create array of monsters to test various union constructors. */
     ns(Monster_testarrayoftables_start(B));
